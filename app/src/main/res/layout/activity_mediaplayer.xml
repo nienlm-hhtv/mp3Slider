@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
+    <LinearLayout
+        android:id="@+id/mediaplayer_sliderpanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/mediaplayer_slider"
+            android:layout_width="match_parent"
+            custom:pager_animation="Accordion"
+            custom:auto_cycle="true"
+            custom:indicator_visibility="visible"
+            custom:pager_animation_span="1100"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:id="@+id/mediaplayer_detailpanel"
+        android:background="#80000000"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00:00"
+            android:id="@+id/mediaplayer_txt_currenttime"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="@android:color/white" />
+
+        <!--<SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/mediaplayer_seekbar"
+            android:layout_toLeftOf="@+id/mediaplayer_txt_totaltime"
+            android:layout_toRightOf="@+id/mediaplayer_txt_currenttime"
+            android:layout_alignParentBottom="true"/>-->
+        <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/mediaplayer_seekbar"
+            android:layout_toLeftOf="@+id/mediaplayer_txt_totaltime"
+            android:layout_toRightOf="@+id/mediaplayer_txt_currenttime"
+            android:layout_alignParentBottom="true"
+            app:dsb_min="2"
+            app:dsb_max="15"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="00:00"
+            android:id="@+id/mediaplayer_txt_totaltime"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="@android:color/white"/>
+    </RelativeLayout>
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/mediaplayer_playbtn"
+        android:layout_centerVertical="true"
+        android:scaleType="fitEnd"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_play_circle_filled_white"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true" />
+    <ProgressBar
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/mediaplayer_loading"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
